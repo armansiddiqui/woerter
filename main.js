@@ -12,7 +12,7 @@ function printWord() {
     frontDiv.style.display="none";
     backDivText.style.display="block";
     backDivText.innerText = input.value;
-    resizeText(backDivText);
+    resizeText();
 }
 
 function goToFront() {
@@ -21,17 +21,22 @@ function goToFront() {
     input.focus();
 }
 
-function resizeText(textElement) {
-    const parentWidth = window.innerWidth;
-    const parentHeight = window.innerHeight;
-    let fontSize = 2000; // Start with a large font size
-    textElement.style.fontSize = fontSize + 'px';
+function resizeText() {
+    if(backDivText.style.display=="block") {
+        const parentWidth = window.innerWidth;
+        const parentHeight = window.innerHeight;
+        let fontSize = 2000; // Start with a large font size
+        backDivText.style.fontSize = fontSize + 'px';
 
-    const bufferMargin = 0; // Adjust the buffer margin as needed
+        const bufferMargin = 0; // Adjust the buffer margin as needed
     
-    // Reduce font size until the text fits within the parent width
-    while (textElement.offsetWidth + bufferMargin > parentWidth || textElement.offsetHeight + bufferMargin > parentHeight) {
-        fontSize-=0.5;
-        textElement.style.fontSize = fontSize + 'px';
+        // Reduce font size until the text fits within the parent width
+        while (backDivText.offsetWidth + bufferMargin > parentWidth || backDivText.offsetHeight + bufferMargin > parentHeight) {
+            fontSize-=0.5;
+            backDivText.style.fontSize = fontSize + 'px';
+        }
     }
 }
+
+// Resize on window resize
+window.addEventListener('resize', resizeText);
