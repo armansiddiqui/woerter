@@ -1,19 +1,26 @@
-<html>
+<!DOCTYPE html>
+
+<html lang="de">
 
 <head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
  <link rel="stylesheet" type="text/css" href="styles.css" />
  <title>Woerter</title>
 </head>
 
 <body>
 <div id="frontDiv" class="front">Wort hier eingeben:
- <input id="myInput" type="text">
+ <input id="myInput" type="text" autofocus="autofocus">
  <button onclick="printWord()">Senden</button>
 </div>
+<!--<div id="backDiv" class="back">-->
 <div id="backDiv" class="back">
-  <div id="backDivText"></div>
-  <button onClick="goToFront()">Zurück</button>
+  <h1 id="backDivText"></h1>
 </div>
+  <!--<button onClick="goToFront()">Zurück</button>-->
+<!--</div>-->
+<script type="text/javascript" src="fitty.min.js"></script>
 <script type="text/javascript" src="main.js"></script>
 </body>
 

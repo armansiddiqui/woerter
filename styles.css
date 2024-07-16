@@ -1,3 +1,13 @@
-.back {
+body {
+ font-family: Brush Script MT;
+ font-size: large;
+ 
+}
+
+h1 {
+  text-align: center;
+}
+
+#backDivText {
   display: none;
 }
