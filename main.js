@@ -49,3 +49,6 @@ function debounce(func, wait) {
 
 // Resize on window resize with debounce
 window.addEventListener('resize', debounce(resizeText, 150));
+
+// Resize on orientation change with debounce
+window.addEventListener('orientationchange', debounce(resizeText, 150));
