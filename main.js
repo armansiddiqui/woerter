@@ -38,5 +38,14 @@ function resizeText() {
     }
 }
 
-// Resize on window resize
-window.addEventListener('resize', resizeText);
+// Debounce function to avoid too many resize calls
+function debounce(func, wait) {
+    let timeout;
+    return function() {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func(), wait);
+    };
+}
+
+// Resize on window resize with debounce
+window.addEventListener('resize', debounce(resizeText, 150));
