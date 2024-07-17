@@ -23,6 +23,7 @@ function goToFront() {
 
 function resizeText() {
     if(backDivText.style.display=="block") {
+        requestAnimationFrame(() => {
         const parentWidth = window.innerWidth;
         const parentHeight = window.innerHeight;
         let fontSize = 1000; // Start with a large font size
@@ -35,6 +36,7 @@ function resizeText() {
             fontSize -= 0.5; // Decrease font size in smaller increments for precision
             backDivText.style.fontSize = fontSize + 'px';
         }
+        });
     }
 }
 
@@ -48,7 +50,7 @@ function debounce(func, wait) {
 }
 
 // Resize on window resize and orientation change with debounce
-const debouncedResize = debounce(() => requestAnimationFrame(resizeText), 150);
+const debouncedResize = debounce(resizeText, 150);
 window.addEventListener('resize', debouncedResize);
 window.addEventListener('orientationchange', debouncedResize);
 
